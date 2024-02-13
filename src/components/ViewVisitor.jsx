@@ -5,7 +5,7 @@ import axios from 'axios'
 const ViewVisitor = () => {
     const [data,setData] = new useState([])
     const getData = ()=>{
-        axios.get("http://localhost:3002/api/visitors/view").then(
+        axios.get("http://localhost:3002/api/visitors/viewvisitors").then(
             (response)=> {setData(response.data)}
         )
     }
@@ -26,6 +26,7 @@ const ViewVisitor = () => {
       <th scope="col">Purpose of Visit</th>
       <th scope="col">Aadhar Number</th>
       <th scope="col">Place</th>
+      <th scope="col">Added By</th>
       
     </tr>
   </thead>
@@ -41,6 +42,7 @@ const ViewVisitor = () => {
                 <td>{value.PurposeOfVisit}</td>
                 <td>{value.vistorAadhar}</td>
                 <td>{value.vistorPlace}</td>
+                <td>{value.userId.name}</td>
               </tr>
             }
         )
